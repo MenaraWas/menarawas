@@ -1,0 +1,249 @@
+{
+  "_LoadingSpinner-CLiBgTks.js": {
+    "file": "assets/LoadingSpinner-CLiBgTks.js",
+    "name": "LoadingSpinner",
+    "imports": [
+      "resources/js/main.js"
+    ]
+  },
+  "_NewsCard-pNRJG7FG.js": {
+    "file": "assets/NewsCard-pNRJG7FG.js",
+    "name": "NewsCard",
+    "imports": [
+      "resources/js/main.js"
+    ]
+  },
+  "_Pagination-Ckky8yQw.js": {
+    "file": "assets/Pagination-Ckky8yQw.js",
+    "name": "Pagination",
+    "imports": [
+      "resources/js/main.js"
+    ]
+  },
+  "_ProjectCard-XymhNZuJ.js": {
+    "file": "assets/ProjectCard-XymhNZuJ.js",
+    "name": "ProjectCard",
+    "imports": [
+      "resources/js/main.js"
+    ]
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-DYTzGMpP.css",
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "name": "app",
+    "names": [
+      "app.css"
+    ]
+  },
+  "resources/js/main.js": {
+    "file": "assets/main-B_yIraWB.js",
+    "name": "main",
+    "src": "resources/js/main.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "resources/js/pages/Home.vue",
+      "resources/js/pages/News.vue",
+      "resources/js/pages/NewsDetail.vue",
+      "resources/js/pages/Portfolio.vue",
+      "resources/js/pages/ProjectDetail.vue",
+      "resources/js/pages/admin/Login.vue",
+      "resources/js/pages/admin/Dashboard.vue",
+      "resources/js/pages/admin/Posts.vue",
+      "resources/js/pages/admin/PostForm.vue",
+      "resources/js/pages/admin/PostForm.vue",
+      "resources/js/pages/admin/Projects.vue",
+      "resources/js/pages/admin/ProjectForm.vue",
+      "resources/js/pages/admin/ProjectForm.vue",
+      "resources/js/pages/admin/Categories.vue",
+      "resources/js/pages/admin/Tags.vue",
+      "resources/js/pages/NotFound.vue"
+    ],
+    "css": [
+      "assets/app-DYTzGMpP.css"
+    ]
+  },
+  "resources/js/pages/Home.vue": {
+    "file": "assets/Home-_9uoNlOh.js",
+    "name": "Home",
+    "src": "resources/js/pages/Home.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js",
+      "_NewsCard-pNRJG7FG.js",
+      "_ProjectCard-XymhNZuJ.js",
+      "_LoadingSpinner-CLiBgTks.js"
+    ],
+    "css": [
+      "assets/app-DYTzGMpP.css"
+    ]
+  },
+  "resources/js/pages/News.vue": {
+    "file": "assets/News-DKKAdkL9.js",
+    "name": "News",
+    "src": "resources/js/pages/News.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js",
+      "_NewsCard-pNRJG7FG.js",
+      "_Pagination-Ckky8yQw.js",
+      "_LoadingSpinner-CLiBgTks.js"
+    ],
+    "css": [
+      "assets/app-DYTzGMpP.css"
+    ]
+  },
+  "resources/js/pages/NewsDetail.vue": {
+    "file": "assets/NewsDetail-eZkgJVd8.js",
+    "name": "NewsDetail",
+    "src": "resources/js/pages/NewsDetail.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js",
+      "_LoadingSpinner-CLiBgTks.js"
+    ],
+    "css": [
+      "assets/app-DYTzGMpP.css"
+    ]
+  },
+  "resources/js/pages/NotFound.vue": {
+    "file": "assets/NotFound-B30SnpJk.js",
+    "name": "NotFound",
+    "src": "resources/js/pages/NotFound.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js"
+    ],
+    "css": [
+      "assets/app-DYTzGMpP.css"
+    ]
+  },
+  "resources/js/pages/Portfolio.vue": {
+    "file": "assets/Portfolio-BPuBfW77.js",
+    "name": "Portfolio",
+    "src": "resources/js/pages/Portfolio.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js",
+      "_ProjectCard-XymhNZuJ.js",
+      "_LoadingSpinner-CLiBgTks.js"
+    ],
+    "css": [
+      "assets/app-DYTzGMpP.css"
+    ]
+  },
+  "resources/js/pages/ProjectDetail.vue": {
+    "file": "assets/ProjectDetail-Q0jbcdoN.js",
+    "name": "ProjectDetail",
+    "src": "resources/js/pages/ProjectDetail.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js",
+      "_LoadingSpinner-CLiBgTks.js"
+    ],
+    "css": [
+      "assets/app-DYTzGMpP.css"
+    ]
+  },
+  "resources/js/pages/admin/Categories.vue": {
+    "file": "assets/Categories-BypQvT1h.js",
+    "name": "Categories",
+    "src": "resources/js/pages/admin/Categories.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js",
+      "_LoadingSpinner-CLiBgTks.js"
+    ],
+    "css": [
+      "assets/app-DYTzGMpP.css"
+    ]
+  },
+  "resources/js/pages/admin/Dashboard.vue": {
+    "file": "assets/Dashboard-CaDEVI8n.js",
+    "name": "Dashboard",
+    "src": "resources/js/pages/admin/Dashboard.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js"
+    ],
+    "css": [
+      "assets/app-DYTzGMpP.css"
+    ]
+  },
+  "resources/js/pages/admin/Login.vue": {
+    "file": "assets/Login-C91SIX_o.js",
+    "name": "Login",
+    "src": "resources/js/pages/admin/Login.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js"
+    ],
+    "css": [
+      "assets/app-DYTzGMpP.css"
+    ]
+  },
+  "resources/js/pages/admin/PostForm.vue": {
+    "file": "assets/PostForm-Dp04FBK2.js",
+    "name": "PostForm",
+    "src": "resources/js/pages/admin/PostForm.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js"
+    ],
+    "css": [
+      "assets/app-DYTzGMpP.css"
+    ]
+  },
+  "resources/js/pages/admin/Posts.vue": {
+    "file": "assets/Posts-BZT6LFRS.js",
+    "name": "Posts",
+    "src": "resources/js/pages/admin/Posts.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js",
+      "_Pagination-Ckky8yQw.js",
+      "_LoadingSpinner-CLiBgTks.js"
+    ],
+    "css": [
+      "assets/app-DYTzGMpP.css"
+    ]
+  },
+  "resources/js/pages/admin/ProjectForm.vue": {
+    "file": "assets/ProjectForm-C6eylAs4.js",
+    "name": "ProjectForm",
+    "src": "resources/js/pages/admin/ProjectForm.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js"
+    ],
+    "css": [
+      "assets/app-DYTzGMpP.css"
+    ]
+  },
+  "resources/js/pages/admin/Projects.vue": {
+    "file": "assets/Projects-CfqTYCqY.js",
+    "name": "Projects",
+    "src": "resources/js/pages/admin/Projects.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js",
+      "_LoadingSpinner-CLiBgTks.js"
+    ],
+    "css": [
+      "assets/app-DYTzGMpP.css"
+    ]
+  },
+  "resources/js/pages/admin/Tags.vue": {
+    "file": "assets/Tags-CDWTxwD5.js",
+    "name": "Tags",
+    "src": "resources/js/pages/admin/Tags.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.js",
+      "_LoadingSpinner-CLiBgTks.js"
+    ],
+    "css": [
+      "assets/app-DYTzGMpP.css"
+    ]
+  }
+}
