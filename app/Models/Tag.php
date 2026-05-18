@@ -11,21 +11,12 @@ class Tag extends Model
     use HasFactory;
 
     protected $fillable = [
-       'title',
+        'name',
         'slug',
-        'description',
-        'image_url',
-        'link',
-        'tech_stack',
-        'status',
-        'user_id',
     ];
 
-   public function user(){
-    return $this->belongsTo(User::class);
-   }
-
-   public function scopePublished($query){
-    return $query->where('status', 'published');
+   public function posts()
+   {
+       return $this->belongsToMany(Post::class, 'post_tag', 'tag_id', 'post_id');
    }
 }

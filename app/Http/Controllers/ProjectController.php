@@ -8,9 +8,19 @@ use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return Project::published()->with('user')->get();
+        $query = Project::with('user');
+
+        if (auth('sanctum')->check()) {
+            if ($request->has('status')) {
+                $query->where('status', $request->status);
+            }
+        } else {
+            $query->published();
+        }
+
+        return $query->get();
     }
 
     public function store(Request $request)

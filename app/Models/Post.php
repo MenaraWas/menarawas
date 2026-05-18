@@ -13,6 +13,7 @@ class Post extends Model
         'title',
         'slug',
         'content',
+        'featured_image',
         'excerpt',
         'type',
         'status',
@@ -36,7 +37,7 @@ class Post extends Model
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Category::class, 'post_category');
     }
 
     // Scopes
@@ -48,5 +49,10 @@ class Post extends Model
     public function scopeType($query, $type)
     {
         return $query->where('type', $type);
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

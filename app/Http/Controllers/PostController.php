@@ -11,7 +11,15 @@ class PostController extends Controller
     // GET /api/posts
     public function index(Request $request)
     {
-        $query = Post::published()->with('user', 'tags', 'categories');
+        $query = Post::with('user', 'tags', 'categories');
+
+        if (auth('sanctum')->check()) {
+            if ($request->has('status')) {
+                $query->where('status', $request->status);
+            }
+        } else {
+            $query->published();
+        }
 
         // Filter by type
         if ($request->has('type')) {
@@ -60,6 +68,7 @@ class PostController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
+            'featured_image' => 'nullable|string',
             'excerpt' => 'nullable|string|max:500',
             'type' => 'required|in:blog,news',
             'status' => 'required|in:draft,published',
@@ -69,6 +78,7 @@ class PostController extends Controller
             'title' => $validated['title'],
             'slug' => Str::slug($validated['title']) . '-' . uniqid(),
             'content' => $validated['content'],
+            'featured_image' => $validated['featured_image'] ?? null,
             'excerpt' => $validated['excerpt'],
             'type' => $validated['type'],
             'status' => $validated['status'],
@@ -90,6 +100,7 @@ class PostController extends Controller
         $validated = $request->validate([
             'title' => 'string|max:255',
             'content' => 'string',
+            'featured_image' => 'nullable|string',
             'excerpt' => 'nullable|string|max:500',
             'type' => 'in:blog,news',
             'status' => 'in:draft,published',
