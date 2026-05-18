@@ -4,62 +4,66 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        return Project::published()->with('user')->get();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'image_url' => 'nullable|url',
+            'link' => 'nullable|url',
+            'tech_stack' => 'nullable|string',
+            'status' => 'required|in:draft,published',
+        ]);
+
+        $validated['slug'] = Str::slug($validated['title']) . '-' . uniqid();
+        $validated['user_id'] = auth()->id();
+
+        return Project::create($validated);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Project $project)
     {
-        //
+        if ($project->status === 'draft' && $project->user_id !== auth()->id()) {
+            return response()->json(['message' => 'Not found'], 404);
+        }
+        return $project->load('user');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Project $project)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Project $project)
     {
-        //
+        if ($project->user_id !== auth()->id()) {
+            return response()->json(['message' => 'Unauthorized'], 403);
+        }
+
+        $validated = $request->validate([
+            'title' => 'string|max:255',
+            'description' => 'string',
+            'image_url' => 'nullable|url',
+            'link' => 'nullable|url',
+            'tech_stack' => 'nullable|string',
+            'status' => 'in:draft,published',
+        ]);
+
+        $project->update($validated);
+        return $project;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Project $project)
     {
-        //
+        if ($project->user_id !== auth()->id()) {
+            return response()->json(['message' => 'Unauthorized'], 403);
+        }
+
+        $project->delete();
+        return response()->json(null, 204);
     }
 }

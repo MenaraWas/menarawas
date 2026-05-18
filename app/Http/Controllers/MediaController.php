@@ -7,59 +7,27 @@ use Illuminate\Http\Request;
 
 class MediaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function upload(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'file' => 'required|image|max:5120', // 5MB
+        ]);
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+        if ($request->file('file')) {
+            $file = $request->file('file');
+            $path = $file->store('uploads', 'public');
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+            $media = Media::create([
+                'filename' => $file->getClientOriginalName(),
+                'path' => '/storage/' . $path,
+                'mimetype' => $file->getMimeType(),
+                'size' => $file->getSize(),
+                'user_id' => auth()->id(),
+            ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Media $media)
-    {
-        //
-    }
+            return response()->json($media, 201);
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Media $media)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Media $media)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Media $media)
-    {
-        //
+        return response()->json(['message' => 'Upload failed'], 400);
     }
 }
